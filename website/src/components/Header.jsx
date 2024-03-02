@@ -8,6 +8,7 @@ const Header = ({ setCurrentPage }) => {
   };
 
   return (
+    
     <header>
       <nav>
         <ul>
@@ -20,6 +21,7 @@ const Header = ({ setCurrentPage }) => {
         </ul>
       </nav>
     </header>
+    
   );
 };
 

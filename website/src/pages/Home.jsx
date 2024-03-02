@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="../styles/utils.css" /> 
 const Home = () => {
   return (
     <div>
