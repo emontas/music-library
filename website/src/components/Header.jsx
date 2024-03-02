@@ -1,28 +1,19 @@
-/* eslint-disable react/prop-types */
+// Header.js
+import { Link } from 'react-router-dom';
 
-
-
-const Header = ({ setCurrentPage }) => {
-  const handleNavigation = (page) => {
-    setCurrentPage(page);
-  };
-
+function Header() {
   return (
-    
-    <header>
-      <nav>
-        <ul>
-          <li>
-            <button onClick={() => handleNavigation('home')}>Home</button>
-          </li>
-          <li>
-            <button onClick={() => handleNavigation('catalog')}>Catalog</button>
-          </li>
-        </ul>
+    <header className="bg-gray-800 text-white p-4">
+      <nav className="flex justify-between">
+        <div>
+          <Link to="/" className="mr-4">Home</Link>
+          <Link to="/catalog" className="mr-4">Catalog</Link>
+          <Link to="/about" className="mr-4">About</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
       </nav>
     </header>
-    
   );
-};
+}
 
 export default Header;
