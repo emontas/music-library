@@ -1,13 +1,16 @@
 // CentralImage.js
+import { Link } from 'react-router-dom';
 
 const CentralImage = () => {
   return (
     <div className="flex justify-items-center items-center">
-      <img
+      <Link to="/catalog" className="object-center m-auto  max-w-xl">
+         <img
         src="logo_Groove_Lab.jpg"
         alt="EM Groovelab"
-        className="object-center m-auto shadow-lg max-w-xl"
+        
       />
+      </Link>
     </div>
   );
 }
