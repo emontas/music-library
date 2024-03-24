@@ -15,7 +15,6 @@ function AudioPlayer({ track }) {
   const audioRef = useRef(null);
   const wavesurferRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
   const [volume, setVolume] = useState(0.5);
   const [isMuted, setIsMuted] = useState(false);
 
@@ -42,10 +41,6 @@ function AudioPlayer({ track }) {
       setIsPlaying(false);
     });
 
-    wavesurferRef.current.on('audioprocess', () => {
-      setCurrentTime(wavesurferRef.current.getCurrentTime());
-    });
-
     return () => {
       wavesurferRef.current.destroy();
     };
@@ -57,12 +52,6 @@ function AudioPlayer({ track }) {
     } else {
       wavesurferRef.current.play();
     }
-  };
-
-  const handleSeek = (event) => {
-    const seekTime = parseFloat(event.target.value);
-    wavesurferRef.current.seekTo(seekTime / wavesurferRef.current.getDuration());
-    setCurrentTime(seekTime);
   };
 
   const handleSkipPrevious = () => {
@@ -96,13 +85,7 @@ function AudioPlayer({ track }) {
       </div>
       <div className="flex justify-between items-center">
         <div className="flex-grow">
-          <input
-            type="range"
-            value={currentTime}
-            max={wavesurferRef.current ? wavesurferRef.current.getDuration() : 0}
-            onChange={handleSeek}
-            className="w-full"
-          />
+          {/* Range input slider removed */}
         </div>
         <div className="flex items-center gap-4">
           <button onClick={handleSkipPrevious}>
